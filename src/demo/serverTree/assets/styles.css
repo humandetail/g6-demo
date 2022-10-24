@@ -1,0 +1,7 @@
+.custom-shape {
+  stroke-dasharray: 5,5
+}
+
+.custom-shape-inside {
+  stroke-dasharray: 3,3
+}

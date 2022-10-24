@@ -1,2 +1,3 @@
 import './style.css'
-console.log('Hello g6')
+
+import './demo/serverTree/index'
