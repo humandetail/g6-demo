@@ -1,6 +1,7 @@
 import G6 from '@antv/g6'
 
 import data from './config/data'
+import usePlatformItem from './components/PlatformItem'
 import useAcsItem from './components/AcsItem'
 import useServerItem from './components/ServerItem'
 
@@ -13,6 +14,7 @@ const graph = new G6.Graph({
   height: window.innerHeight
 })
 
+usePlatformItem(graph)
 useAcsItem(graph)
 useServerItem(graph)
 
