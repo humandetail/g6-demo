@@ -18,15 +18,8 @@ const data: GraphData = {
     id: 'node2',
     x: 400,
     y: 400,
-    label: '另一个说明',
-    type: 'AcsItemShape',
-    data: <AdditionalConfig>{
-      title: '测试ACS2',
-      port: '10010',
-      numberOfClients: 20,
-      status: 3,
-      loading: false
-    }
+    label: '192.168.101.899',
+    type: 'ServerItemShape'
  }],
   edges: [{
     id: 'edge1',

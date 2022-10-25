@@ -2,6 +2,7 @@ import G6 from '@antv/g6'
 
 import data from './config/data'
 import useAcsItem from './components/AcsItem'
+import useServerItem from './components/ServerItem'
 
 import './assets/styles.css'
 
@@ -13,6 +14,7 @@ const graph = new G6.Graph({
 })
 
 useAcsItem(graph)
+useServerItem(graph)
 
 graph.data(data)
 graph.render()
