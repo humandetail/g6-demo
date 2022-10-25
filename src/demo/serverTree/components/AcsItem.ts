@@ -10,6 +10,8 @@ import BtnRebootIcon from '../assets/icons/reboot.svg'
 import LoadingIcon from '../assets/icons/loading.gif'
 import { setStatus } from '../api'
 
+export const PREFIX = 'ACS_ITEM_'
+
 G6.registerNode('AcsItemShape', {
   draw: (cfg, group) => {
     const data = cfg!.data as AdditionalConfig
@@ -28,7 +30,7 @@ G6.registerNode('AcsItemShape', {
 
     // 头部区域组
     const headerGroup = group!.addGroup({
-      id: 'header-group'
+      id: PREFIX + 'header-group'
     })
     headerGroup.translate(10, 10)
 
@@ -46,7 +48,7 @@ G6.registerNode('AcsItemShape', {
     })
     // 远程配置 按钮
     createRectGroup(headerGroup, {
-      id: 'btn-remote-setting',
+      id: PREFIX + 'btn-remote-setting',
       x: 209,
       y: 0,
       width: 84,
@@ -72,7 +74,7 @@ G6.registerNode('AcsItemShape', {
 
     // 内区域组
     const insideGroup = group!.addGroup({
-      id: 'inside-group'
+      id: PREFIX + 'inside-group'
     })
     insideGroup.translate(10, 40)
     // 内边框
@@ -90,7 +92,7 @@ G6.registerNode('AcsItemShape', {
 
     // 端口号
     createRectGroup(insideGroup, {
-      id: 'port',
+      id: PREFIX + 'port',
       x: 6,
       y: 6,
       width: 120,
@@ -108,7 +110,7 @@ G6.registerNode('AcsItemShape', {
     })
     // 客户端数量
     createRectGroup(insideGroup, {
-      id: 'number-of-clients',
+      id: PREFIX + 'number-of-clients',
       x: 130,
       y: 6,
       width: 157,
@@ -128,7 +130,7 @@ G6.registerNode('AcsItemShape', {
     // 状态
     const statusConfig = StatusConfig[data.status]
     createRectGroup(insideGroup, {
-      id: 'status',
+      id: PREFIX + 'status',
       x: 6,
       y: 38,
       width: 281,
@@ -147,7 +149,7 @@ G6.registerNode('AcsItemShape', {
 
     // 按钮组
     const buttonsGroup = insideGroup.addGroup({
-      id: 'buttons-group'
+      id: PREFIX + 'buttons-group'
     })
 
     const btns: BtnType[] = ['on', 'off', 'reboot']
@@ -157,7 +159,7 @@ G6.registerNode('AcsItemShape', {
     btns.forEach((btn, index) => {
       const btnIsDisabled = isDisabled(btn, data.status)
       createRectGroup(buttonsGroup, {
-        id: `btn-${btn}`,
+        id: `${PREFIX}btn-${btn}`,
         x: xArr[index],
         y: 70,
         width: 91,
@@ -187,7 +189,7 @@ G6.registerNode('AcsItemShape', {
     // 增加 Loading
     if (data.loading) {
       createRectGroup(group!, {
-        id: 'item-loading',
+        id: PREFIX + 'item-loading',
         x: 0,
         y: 0,
         width: 313,
@@ -219,7 +221,7 @@ export default (graph: Graph) => {
 
     const data = item.getModel().data as AdditionalConfig
 
-    if (className.startsWith('btn-on') && !(isDisabled('on', data.status))) {
+    if (className?.startsWith(PREFIX + 'btn-on') && !(isDisabled('on', data.status))) {
       console.log('开启')
       item.update({
         data: {
@@ -241,7 +243,7 @@ export default (graph: Graph) => {
 
       return
     }
-    if (className.startsWith('btn-off') && !(isDisabled('off', data.status))) {
+    if (className?.startsWith(PREFIX + 'btn-off') && !(isDisabled('off', data.status))) {
       console.log('关闭')
       item.update({
         data: {
@@ -276,7 +278,7 @@ export default (graph: Graph) => {
       }).catch(err => console.log(err))
       return
     }
-    if (className.startsWith('btn-reboot') && !(isDisabled('reboot', data.status))) {
+    if (className?.startsWith(PREFIX + 'btn-reboot') && !(isDisabled('reboot', data.status))) {
       console.log('重启')
       item.update({
         data: {
@@ -317,7 +319,7 @@ export default (graph: Graph) => {
       })
       return
     }
-    if (className.startsWith('btn-remote-setting')) {
+    if (className?.startsWith(PREFIX + 'btn-remote-setting')) {
       console.log('远程配置')
       return
     }
