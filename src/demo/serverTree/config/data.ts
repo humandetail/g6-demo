@@ -7,7 +7,7 @@ const data: GraphData = {
     x: 100,
     y: 200,
     label: '一个说明',
-    type: 'serverItemShape',
+    type: 'AcsItemShape',
     data: <AdditionalConfig>{
       title: '测试ACS1',
       port: '10086',
@@ -19,7 +19,7 @@ const data: GraphData = {
     x: 400,
     y: 400,
     label: '另一个说明',
-    type: 'serverItemShape',
+    type: 'AcsItemShape',
     data: <AdditionalConfig>{
       title: '测试ACS2',
       port: '10010',
