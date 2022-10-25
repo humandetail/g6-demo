@@ -22,3 +22,26 @@ export const StatusConfig = {
     text: '未启动'
   },
 }
+
+export const deviceStatusConfig = {
+  1: {
+    text: '运行中',
+    color: '#07C160',
+    name: 'on'
+  },
+  2: {
+    text: '已关闭',
+    color: '#BABABA',
+    name: 'off'
+  },
+  3: {
+    text: '异常',
+    color: '#FA9D3B',
+    name: 'fault'
+  },
+  4: {
+    text: '断开连接',
+    color: '#FA5151',
+    name: 'broken'
+  }
+}

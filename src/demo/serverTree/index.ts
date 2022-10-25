@@ -4,6 +4,7 @@ import data from './config/data'
 import usePlatformItem from './components/PlatformItem'
 import useAcsItem from './components/AcsItem'
 import useServerItem from './components/ServerItem'
+import useDeviceItem from './components/DeviceItem'
 
 import './assets/styles.css'
 
@@ -17,6 +18,7 @@ const graph = new G6.Graph({
 usePlatformItem(graph)
 useAcsItem(graph)
 useServerItem(graph)
+useDeviceItem(graph)
 
 graph.data(data)
 graph.render()

@@ -49,3 +49,14 @@ export interface RectGroupOptions {
     class?: string;
   }
 }
+
+export type DeviceStatus = 1 | 2 | 3 | 4
+
+export type DeviceType = 'default' | 'ac' | 'door' | 'lamp' | 'machine' | 'monitor' | 'radio' | 'screen'
+
+export type DeviceAdditionalConfig = {
+  id: string | number;
+  name: string;
+  type: DeviceType;
+  status: DeviceStatus;
+}

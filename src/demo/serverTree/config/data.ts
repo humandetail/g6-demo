@@ -1,5 +1,5 @@
 import { GraphData } from "@antv/g6"
-import { AdditionalConfig } from "../types"
+import { AdditionalConfig, DeviceAdditionalConfig } from "../types"
 
 const data: GraphData = {
   nodes: [
@@ -29,6 +29,18 @@ const data: GraphData = {
         numberOfClients: 11,
         status: 1
       }
+    },
+    {
+      id: 'deviceItem1',
+      x: 700,
+      y: 200,
+      type: 'DeviceItemShape',
+      data: <DeviceAdditionalConfig>{
+        id: '1',
+        name: '智能设备_超长名称测试',
+        type: 'default',
+        status: 1
+      }
     }
   ],
   edges: [
@@ -41,6 +53,11 @@ const data: GraphData = {
       id: 'edge2',
       target: 'acsItem1',
       source: 'serverItem1'
+    },
+    {
+      id: 'edge3',
+      target: 'deviceItem1',
+      source: 'acsItem1'
     }
   ]
 }

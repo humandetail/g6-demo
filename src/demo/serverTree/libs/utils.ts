@@ -1,5 +1,6 @@
 import { IGroup } from '@antv/g6'
-import { BtnType, RectGroupOptions, ServerStatus } from '../types'
+import { deviceStatusConfig } from '../config/constants'
+import { BtnType, DeviceStatus, DeviceType, RectGroupOptions, ServerStatus } from '../types'
 
 export const createRectGroup = (group: IGroup, opts: RectGroupOptions) => {
   const g = group.addGroup({
@@ -100,4 +101,8 @@ export const isDisabled = (btn: BtnType, status: ServerStatus) => {
     default:
       return false
   }
+}
+
+export const getDeviceImage = (type: DeviceType, status: DeviceStatus) => {
+  return `/serverTree/device/acs_icon_${type}_${deviceStatusConfig[status].name}_w45.png`
 }

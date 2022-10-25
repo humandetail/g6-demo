@@ -5,3 +5,9 @@
 .custom-shape-inside {
   stroke-dasharray: 3,3
 }
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
