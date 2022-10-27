@@ -63,7 +63,7 @@ G6.registerNode('ServerItemShape', {
 
 export default (graph: Graph) => {
   graph.on('node:click', (e) => {
-    const item = e.item!
+    // const item = e.item!
     const shape = e.target
     const className = shape.get('className')
 

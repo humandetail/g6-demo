@@ -1,4 +1,4 @@
-import G6, { Graph } from '@antv/g6'
+import G6, { Graph, IShape } from '@antv/g6'
 import { deviceStatusConfig } from '../config/constants'
 import { createRectGroup, getDeviceImage } from '../libs/utils'
 import { DeviceAdditionalConfig, DeviceStatus } from '../types'
@@ -30,7 +30,7 @@ G6.registerNode('DeviceItemShape', {
   draw: (cfg, group) => {
     const data = cfg!.data as DeviceAdditionalConfig
 
-    const rect = group!.addShape('rect', {
+    const rect: IShape = group!.addShape('rect', {
       attrs: {
         width: 230,
         height: 100,
@@ -210,7 +210,7 @@ G6.registerNode('DeviceItemShape', {
 
 export default (graph: Graph) => {
   graph.on('node:click', (e) => {
-    const item = e.item!
+    // const item = e.item!
     const shape = e.target
     const className = shape.get('className')
 
