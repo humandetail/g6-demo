@@ -3,7 +3,9 @@ import G6, { GraphData, IGraph } from '@antv/g6'
 import useAcsItem from '../components/AcsItem'
 import useDeviceItem from '../components/DeviceItem'
 
+import '../layout/Layout4'
 import '../assets/styles.css'
+
 import { AdditionalConfig, DeviceAdditionalConfig, DeviceType } from '../types';
 
 const data: GraphData = (() => {
@@ -63,11 +65,11 @@ function render () {
     renderer: 'svg',
     width: window.innerWidth,
     height: window.innerHeight,
+    layout: {
+      type: 'Layout4'
+    },
     defaultEdge: {
-      type: 'polyline',
-      style: {
-        endArrow: true
-      }
+      type: 'layout4Line'
     }
   })
 
@@ -85,6 +87,9 @@ let graph: IGraph | null = null
 export default {
   render () {
     graph = render()
+    const scale = window.innerWidth / 1560
+    graph.zoom(scale)
+    graph.changeSize(window.innerWidth, window.innerHeight * scale)
   },
 
   destroy () {
