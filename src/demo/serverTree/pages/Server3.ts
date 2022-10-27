@@ -3,6 +3,7 @@ import G6, { GraphData, IGraph } from '@antv/g6'
 import useServerItem from '../components/ServerItem'
 import useAcsItem from '../components/AcsItem'
 
+import '../layout/Layout3'
 import '../assets/styles.css'
 import { AdditionalConfig } from '../types';
 
@@ -55,7 +56,13 @@ function render () {
     container: 'app',
     renderer: 'svg',
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
+    layout: {
+      type: 'Layout3'
+    },
+    defaultEdge: {
+      type: 'layout3Line'
+    }
   })
 
   useServerItem(graph)
@@ -72,6 +79,9 @@ let graph: IGraph | null = null
 export default {
   render () {
     graph = render()
+    const scale = window.innerWidth / 1560
+    graph.zoom(scale)
+    graph.changeSize(window.innerWidth, window.innerHeight * scale)
   },
 
   destroy () {
