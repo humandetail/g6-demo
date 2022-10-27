@@ -4,7 +4,9 @@ import usePlatformItem from '../components/PlatformItem'
 import useServerItem from '../components/ServerItem'
 import useAcsItem from '../components/AcsItem'
 
+import '../layout/Layout2'
 import '../assets/styles.css'
+
 import { AdditionalConfig } from '../types';
 
 const data: GraphData = (() => {
@@ -73,7 +75,13 @@ function render () {
     container: 'app',
     renderer: 'svg',
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
+    layout: {
+      type: 'Layout2'
+    },
+    defaultEdge: {
+      type: 'layout2Line'
+    }
   })
   
   usePlatformItem(graph)
@@ -91,6 +99,9 @@ let graph: IGraph | null = null
 export default {
   render () {
     graph = render()
+    const scale = window.innerWidth / 1560
+    graph.zoom(scale)
+    graph.changeSize(window.innerWidth, window.innerHeight * scale)
   },
 
   destroy () {
