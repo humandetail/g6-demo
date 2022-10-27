@@ -13,7 +13,6 @@ const hash = location.hash.slice(1)
 render(hash)
 
 function render (hash: string) {
-  console.log(hash, Home)
   switch (hash) {
     case 'server':
       currentInstance?.destroy && currentInstance.destroy()
@@ -36,13 +35,12 @@ function render (hash: string) {
       currentInstance = Server4
       break
     default:
-      console.log('Hello world')
+      currentInstance?.destroy && currentInstance.destroy()
       break
   }
 }
 
 window.addEventListener('hashchange', (e: HashChangeEvent) => {
-  console.log(e)
   const hash = e.newURL.split('#')[1]
   render(hash)
 })
